@@ -14,12 +14,12 @@ Toast::Toast(QWidget *parent) : QFrame(parent) {
     layout->setSpacing(0);
     layout->setMargin(0);
     label = new QLabel;
-    label->setStyleSheet("QLabel{color: #000;padding:0;background:transparent}"); //transparent
+    label->setStyleSheet("QLabel{color: #000;padding:0;background:transparent}");
     label->setText("");
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
     img_label = new QLabel;
-    img_label->setStyleSheet("QLabel{background:transparent}"); //transparent
+    img_label->setStyleSheet("QLabel{background:transparent}");
     img_label->setFixedSize(30, 30);
 
     pixmap = new QPixmap(":/resource/imgs/toast_info.png");
