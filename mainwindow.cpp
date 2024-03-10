@@ -25,9 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 int MainWindow::handleClick(int i) {
-    qDebug() << i ;
     if(i == 0){
-        toast->info(this->size().width(),"众里寻他千百度");
+        toast->info(this->size().width(),"众里寻他千百度，蓦然回首");
     }else if(i == 1){
         toast->success(this->size().width(),"叶圣陶散文》为“名家经典珍藏”丛书之一，收录了叶圣陶先生的散文精品数十篇，丰富，题材各异，构思精巧，文笔精巧、语言幽默、内蕴深厚、风格恬淡，充分显示了叶圣陶先生");
     }else if(i == 2){

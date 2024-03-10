@@ -46,6 +46,5 @@ private:
     QPixmap *pixmap;
     QGraphicsDropShadowEffect *shadow;
     QPropertyAnimation *animation;
-    QString text;
 };
 #endif //CONTROLS_UI_TOAST_H
