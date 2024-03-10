@@ -40,6 +40,8 @@ else()
     mainwindow.h
     res.qrc
     mainwindow.ui
+    comm/toast/toast.cpp
+    comm/toast/toast.h
   )
 endif()
 

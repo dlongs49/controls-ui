@@ -1,0 +1,47 @@
+QPushButton#btn_0,QPushButton#btn_1,QPushButton#btn_2,QPushButton#btn_3,QPushButton#btn_4{
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+}
+QPushButton#btn_0{
+    background: #1677ff;
+
+}
+QPushButton#btn_0::hover{
+    background: #2c7eea;
+}
+QPushButton#btn_0::pressed{
+    background: #1068e3;
+}
+
+
+QPushButton#btn_1{
+    background: #52c41a;
+}
+QPushButton#btn_1::hover{
+    background: #5ace21;
+}
+QPushButton#btn_1::pressed{
+    background: #44a212;
+}
+
+
+QPushButton#btn_2{
+    background: #FA8C16;
+}
+QPushButton#btn_2::hover{
+    background: #f59632;
+}
+QPushButton#btn_2::pressed{
+    background: #dc7e1a;
+}
+
+QPushButton#btn_3{
+    background: #F5222D;
+}
+QPushButton#btn_3::hover{
+    background: #f62f3a;
+}
+QPushButton#btn_3::pressed{
+    background: #cc1d26;
+}

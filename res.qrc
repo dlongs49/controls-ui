@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>info.png</file>
+        <file>resource/imgs/toast_info.png</file>
+        <file>resource/imgs/toast_success.png</file>
+        <file>resource/imgs/toast_warning.png</file>
+        <file>resource/imgs/toast_error.png</file>
+        <file>resource/main.css</file>
     </qresource>
 </RCC>

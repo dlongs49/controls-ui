@@ -1,5 +1,6 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+
+#ifndef CONTROLS_UI_TOAST_H
+#define CONTROLS_UI_TOAST_H
 
 #include <QMainWindow>
 #include <QWidget>
@@ -18,38 +19,33 @@
 #include <QFrame>
 #include <QGraphicsDropShadowEffect>
 #include <QPixmap>
-#include "comm/toast/toast.h"
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
-
-class MainWindow : public QMainWindow {
+class Toast : public QFrame {
 Q_OBJECT
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit  Toast(QWidget *parent);
 
-    ~MainWindow();
+    ~Toast();
 
 public slots:
 
-    int handleClick(int i);
-
+    void handleClick(int w, QString str);
+    void success(int main_width,QString str);
+    void info(int main_width,QString str);
+    void warning(int main_width,QString str);
+    void error(int main_width,QString str);
+    void onMsgTimeOut();
 private:
-    QPushButton *btnList[4];
-
+    QPushButton *btn;
+    QSize parentSize;
     QHBoxLayout *layout;
-    QHBoxLayout *layouts;
-    QWidget *widgets;
+    QWidget *widget;
     QTimer *timer;
     QLabel *label;
     QLabel *img_label;
-    QFrame *widget;
+    QFrame *frame;
     QPixmap *pixmap;
     QGraphicsDropShadowEffect *shadow;
     QPropertyAnimation *animation;
-    Toast *toast;
-
-    Ui::MainWindow *ui;
+    QString text;
 };
-
-#endif // MAINWINDOW_H
+#endif //CONTROLS_UI_TOAST_H
