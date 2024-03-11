@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     layouts = new QHBoxLayout();
     layouts->setAlignment(Qt::AlignTop);
     QList<QString> list;
-    list << "信息" << "成功" << "警告" << "失败";
-    for (int i = 0; i < 4; i++) {
+    list << "信息" << "成功" << "警告" << "失败" << "提示";
+    for (int i = 0; i < 5; i++) {
         btnList[i] = new QPushButton(this);
         btnList[i]->setObjectName("btn_" + QString::number(i));
         btnList[i]->setText(list.at(i));
@@ -33,6 +33,8 @@ int MainWindow::handleClick(int i) {
         toast->warning(this->size().width(),"参数错误,请检查重试!");
     }else if(i == 3){
         toast->error(this->size().width(),"网络异常,请检查网络是否连接正常");
+    }else if(i == 4){
+        toast->message(this->size().width(),"提示");
     }
 }
 MainWindow::~MainWindow() {

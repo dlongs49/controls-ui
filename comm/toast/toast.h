@@ -18,11 +18,13 @@ public:
 
 public slots:
 
-    void handleClick(int w, QString str);
+    void handleClick(int w, QString str,bool  flag);
     void success(int main_width,QString str);
     void info(int main_width,QString str);
     void warning(int main_width,QString str);
     void error(int main_width,QString str);
+    void message(int main_width,QString str);
+    void beforeTimer();
     void onMsgTimeOut();
 private:
     QSize parentSize;

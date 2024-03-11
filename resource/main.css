@@ -45,3 +45,13 @@ QPushButton#btn_3::hover{
 QPushButton#btn_3::pressed{
     background: #cc1d26;
 }
+
+QPushButton#btn_4{
+    background: #bbbbbb;
+}
+QPushButton#btn_4::hover{
+    background: #c2c2c2;
+}
+QPushButton#btn_4::pressed{
+    background: #a4a4a4;
+}

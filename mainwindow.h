@@ -35,7 +35,7 @@ public slots:
     int handleClick(int i);
 
 private:
-    QPushButton *btnList[4];
+    QPushButton *btnList[5];
 
     QHBoxLayout *layout;
     QHBoxLayout *layouts;

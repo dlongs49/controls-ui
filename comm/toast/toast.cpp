@@ -14,7 +14,7 @@ Toast::Toast(QWidget *parent) : QFrame(parent) {
     layout->setSpacing(0);
     layout->setMargin(0);
     label = new QLabel;
-    label->setStyleSheet("QLabel{color: #000;padding:0;background:transparent}");
+    label->setStyleSheet("color: #000;padding:0;background:transparent;");
     label->setText("");
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
@@ -37,7 +37,11 @@ Toast::Toast(QWidget *parent) : QFrame(parent) {
     this->setGraphicsEffect(shadow);
 }
 
-void Toast::handleClick(int w, QString str) {
+void Toast::handleClick(int w, QString str,bool flag = true) {
+    if(flag){
+        this->setStyleSheet("QFrame{background: rgba(255, 255, 255, 1);border-radius: 6px;padding:5px 5px;}");
+        label->setStyleSheet("color: #000;padding:0;background:transparent;");
+    }
     this->setFixedSize(0, 0);
     this->setMinimumSize(0, 40);
     label->setFixedSize(0, 30);
@@ -74,25 +78,19 @@ void Toast::handleClick(int w, QString str) {
 }
 
 void Toast::info(int w, QString str) {
-    if (timer->isActive()) {
-        timer->stop();
-    }
+    beforeTimer();
     img_label->setPixmap(QPixmap(":/resource/imgs/toast_info.png"));
     this->handleClick(w, str);
 }
 
 void Toast::success(int w, QString str) {
-    if (timer->isActive()) {
-        timer->stop();
-    }
+    beforeTimer();
     img_label->setPixmap(QPixmap(":/resource/imgs/toast_success.png"));
     this->handleClick(w, str);
 }
 
 void Toast::warning(int w, QString str) {
-    if (timer->isActive()) {
-        timer->stop();
-    }
+    beforeTimer();
     img_label->setPixmap(QPixmap(":/resource/imgs/toast_warning.png"));
     this->handleClick(w, str);
 }
@@ -101,7 +99,22 @@ void Toast::error(int w, QString str) {
     img_label->setPixmap(QPixmap(":/resource/imgs/toast_error.png"));
     this->handleClick(w, str);
 }
+void Toast::message(int w, QString str) {
+    img_label->setVisible(false);
+    layout->setAlignment(Qt::AlignCenter);
+    this->setStyleSheet("QFrame{background: rgba(0, 0, 0, 0.6);border-radius: 6px;padding:5px 5px;}");
 
+    label->setStyleSheet(label->styleSheet()+"color:#fff");
+    this->handleClick(w, str,false);
+}
+
+
+void Toast::beforeTimer(){
+    img_label->setVisible(true);
+    if (timer->isActive()) {
+        timer->stop();
+    }
+}
 void Toast::onMsgTimeOut() {
     timer->stop();
     this->setVisible(false);
