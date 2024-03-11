@@ -26,13 +26,13 @@ MainWindow::MainWindow(QWidget *parent)
 
 int MainWindow::handleClick(int i) {
     if(i == 0){
-        toast->info(this->size().width(),"众里寻他千百度，蓦然回首");
+        toast->info(this->size().width(),"一个信息提示");
     }else if(i == 1){
-        toast->success(this->size().width(),"叶圣陶散文》为“名家经典珍藏”丛书之一，收录了叶圣陶先生的散文精品数十篇，丰富，题材各异，构思精巧，文笔精巧、语言幽默、内蕴深厚、风格恬淡，充分显示了叶圣陶先生");
+        toast->success(this->size().width(),"操作成功");
     }else if(i == 2){
-        toast->warning(this->size().width(),"请求异常");
+        toast->warning(this->size().width(),"参数错误,请检查重试!");
     }else if(i == 3){
-        toast->error(this->size().width(),"网络异常");
+        toast->error(this->size().width(),"网络异常,请检查网络是否连接正常");
     }
 }
 MainWindow::~MainWindow() {
