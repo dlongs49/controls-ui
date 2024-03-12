@@ -1,7 +1,6 @@
 #include "toast.h"
 
 Toast::Toast(QWidget *parent) : QFrame(parent) {
-
     parentSize = parent->size();
 
     int height = 40;
@@ -75,7 +74,6 @@ void Toast::handleClick(int w, QString str,bool flag = true) {
     this->animation->start();
     this->timer->start(1500);
 }
-
 void Toast::info(int w, QString str) {
     beforeTimer();
     img_label->setPixmap(QPixmap(":/resource/imgs/toast_info.png"));
