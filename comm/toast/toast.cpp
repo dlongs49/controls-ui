@@ -19,15 +19,14 @@ Toast::Toast(QWidget *parent) : QFrame(parent) {
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
     img_label = new QLabel;
-    img_label->setStyleSheet("QLabel{background:transparent}");
-    img_label->setFixedSize(30, 30);
+    img_label->setStyleSheet("QLabel{background:transparent;padding:0;margin-right:5px;}");
+    img_label->setFixedSize(25, 20);
 
     pixmap = new QPixmap(":/resource/imgs/toast_info.png");
     img_label->setPixmap(*pixmap);
     img_label->setScaledContents(true);
     layout->addWidget(img_label);
     layout->addWidget(label);
-    layout->setAlignment(Qt::AlignLeft);
     this->setLayout(layout);
 
     shadow = new QGraphicsDropShadowEffect(this);
@@ -48,7 +47,7 @@ void Toast::handleClick(int w, QString str,bool flag = true) {
     label->setText(str);
 
     // 图标30 + 左右内边距10
-    int mar_pad = 40;
+    int mar_pad = 35;
     // label 建议宽度
     int label_width = label->sizeHint().width();
     qDebug() << this->size() << label_width;
