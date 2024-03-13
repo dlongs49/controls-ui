@@ -34,7 +34,7 @@ int MainWindow::handleClick(int i) {
     }else if(i == 3){
         toast->error(this->size().width(),"网络异常,请检查网络是否连接正常");
     }else if(i == 4){
-        toast->message(this->size().width(),"提示");
+        toast->message(this->size().width(),"轻提示");
     }
 }
 MainWindow::~MainWindow() {
