@@ -26,23 +26,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-if(ANDROID)
-  add_library(controls-ui SHARED
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-  )
-else()
-  add_executable(controls-ui
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    res.qrc
-    mainwindow.ui
-    comm/toast/toast.cpp
-    comm/toast/toast.h
-  )
-endif()
+add_executable(controls-ui
+        main.cpp
+        mainwindow.cpp
+        mainwindow.h
+        res.qrc
+        mainwindow.ui
+        comm/toast/toast.cpp
+        comm/toast/toast.h
+)
 
 target_link_libraries(controls-ui PRIVATE Qt5::Widgets)
