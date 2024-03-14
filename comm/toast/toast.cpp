@@ -64,11 +64,11 @@ void Toast::handleClick(int w, QString str,bool flag = true) {
     }
     label->setFixedHeight(label->sizeHint().height());
 
-    int ws = (w / 2) - (this->size().width() / 2);
+    int left = (w / 2) - (this->size().width() / 2);
     animation = new QPropertyAnimation(this, "geometry");
     animation->setDuration(100);
-    animation->setStartValue(QRect(ws, 0, w, this->height()));
-    animation->setEndValue(QRect(ws, 30, w, this->height()));
+    animation->setStartValue(QRect(left, 0, w, this->height()));
+    animation->setEndValue(QRect(left, 30, w, this->height()));
 
     this->setVisible(true);
     this->animation->start();
