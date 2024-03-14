@@ -6,19 +6,15 @@
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QMessageBox>
-#include <QProgressBar>
 #include <QTimer>
 #include <QFileInfo>
 #include <QLabel>
-#include <QPropertyAnimation>
 #include <QDebug>
 #include <QFrame>
-#include <QGraphicsDropShadowEffect>
-#include <QPixmap>
 #include "comm/toast/toast.h"
+#include "comm/dialog/dialog.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -36,20 +32,16 @@ public slots:
 
 private:
     QPushButton *btnList[5];
+    QPushButton *dialog_btn;
 
-    QHBoxLayout *layout;
-    QHBoxLayout *layouts;
-    QWidget *widgets;
-    QTimer *timer;
-    QLabel *label;
-    QLabel *img_label;
-    QFrame *widget;
-    QPixmap *pixmap;
-    QGraphicsDropShadowEffect *shadow;
-    QPropertyAnimation *animation;
+    QVBoxLayout *layout;
+    QHBoxLayout *layout_toast;
+    QHBoxLayout *layout_dialog;
+    QWidget *widget_toast;
+    QWidget *widget_dialog;
+    QWidget *widget;
     Toast *toast;
-
-    Ui::MainWindow *ui;
+    Dialog *dialog;
 };
 
 #endif // MAINWINDOW_H

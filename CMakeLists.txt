@@ -31,9 +31,10 @@ add_executable(controls-ui
         mainwindow.cpp
         mainwindow.h
         res.qrc
-        mainwindow.ui
         comm/toast/toast.cpp
         comm/toast/toast.h
+        comm/dialog/dialog.cpp
+        comm/dialog/dialog.h
 )
 
 target_link_libraries(controls-ui PRIVATE Qt5::Widgets)

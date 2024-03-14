@@ -4,8 +4,8 @@ MainWindow::MainWindow(QWidget *parent)
         : QMainWindow(parent) {
     this->resize(800, 500);
 
-    layouts = new QHBoxLayout();
-    layouts->setAlignment(Qt::AlignTop);
+    layout_toast = new QHBoxLayout();
+    layout_toast->setAlignment(Qt::AlignTop);
     QList<QString> list;
     list << "信息" << "成功" << "警告" << "失败" << "提示";
     for (int i = 0; i < 5; i++) {
@@ -14,14 +14,34 @@ MainWindow::MainWindow(QWidget *parent)
         btnList[i]->setText(list.at(i));
         btnList[i]->setFixedSize(100,32);
         btnList[i]->setCursor(Qt::PointingHandCursor);
-        layouts->addWidget(btnList[i]);
+        layout_toast->addWidget(btnList[i]);
         connect(btnList[i], &QPushButton::clicked, this, [=](){handleClick(i);});
     }
-    widgets = new QWidget(this);
-    widgets->setFixedSize(800, 500);
-    widgets->setLayout(layouts);
+    widget_toast = new QWidget(this);
+    widget_toast->setFixedSize(800, 50);
+    widget_toast->setLayout(layout_toast);
+
+    widget_dialog = new QWidget(this);
+    widget_dialog->setFixedSize(800, 50);
+    dialog_btn = new QPushButton();
+    dialog_btn->setText("提示框");
+    layout_dialog = new QHBoxLayout();
+    layout_dialog->addWidget(dialog_btn);
+    widget_dialog->setLayout(layout_dialog);
+
+    layout = new QVBoxLayout();
+    layout->setAlignment(Qt::AlignTop);
+    layout->addWidget(widget_toast);
+    layout->addWidget(widget_dialog);
+
+    widget = new QWidget(this);
+    widget->setFixedSize(800, 500);
+    widget->setLayout(layout);
+
+
 
     toast = new Toast(this);
+//    dialog = new Dialog(this);
 }
 
 int MainWindow::handleClick(int i) {
