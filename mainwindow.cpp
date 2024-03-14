@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     toast = new Toast(this);
-//    dialog = new Dialog(this);
+    dialog = new Dialog(this);
 }
 
 int MainWindow::handleClick(int i) {
