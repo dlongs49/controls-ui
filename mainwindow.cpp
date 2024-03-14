@@ -24,8 +24,12 @@ MainWindow::MainWindow(QWidget *parent)
     widget_dialog = new QWidget(this);
     widget_dialog->setFixedSize(800, 50);
     dialog_btn = new QPushButton();
+    dialog_btn->setObjectName("dia_btn");
     dialog_btn->setText("提示框");
+    dialog_btn->setCursor(Qt::PointingHandCursor);
+    dialog_btn->setFixedSize(100,32);
     layout_dialog = new QHBoxLayout();
+    layout_dialog->setAlignment(Qt::AlignLeft);
     layout_dialog->addWidget(dialog_btn);
     widget_dialog->setLayout(layout_dialog);
 

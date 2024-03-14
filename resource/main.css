@@ -1,4 +1,4 @@
-QPushButton#btn_0,QPushButton#btn_1,QPushButton#btn_2,QPushButton#btn_3,QPushButton#btn_4{
+QPushButton#btn_0,QPushButton#btn_1,QPushButton#btn_2,QPushButton#btn_3,QPushButton#btn_4,QPushButton#dia_btn{
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -54,4 +54,14 @@ QPushButton#btn_4::hover{
 }
 QPushButton#btn_4::pressed{
     background: #a4a4a4;
+}
+
+QPushButton#dia_btn{
+    background: #cf54ff;
+}
+QPushButton#dia_btn::hover{
+    background: #cf5cff;
+}
+QPushButton#dia_btn::pressed{
+    background: #b439e3;
 }
