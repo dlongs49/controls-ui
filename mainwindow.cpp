@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     widget_dialog = new QWidget(this);
     widget_dialog->setFixedSize(800, 50);
     dialog_btn = new QPushButton();
+    connect(dialog_btn, SIGNAL(clicked()), this, SLOT(handleOn()));
     dialog_btn->setObjectName("dia_btn");
     dialog_btn->setText("提示框");
     dialog_btn->setCursor(Qt::PointingHandCursor);
@@ -46,6 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     toast = new Toast(this);
     dialog = new Dialog(this);
+    dialog->setWindowModality(Qt::ApplicationModal);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    connect(dialog, SIGNAL(emitOn()),this,SLOT(handleDialogOk()));
 }
 
 int MainWindow::handleClick(int i) {
@@ -60,6 +64,12 @@ int MainWindow::handleClick(int i) {
     }else if(i == 4){
         toast->message(this->size().width(),"轻提示");
     }
+}
+void MainWindow::handleDialogOk(){
+    qDebug() << "Dialog click ok";
+}
+void MainWindow::handleOn(){
+    dialog->show(this->size(),"此操作不可逆，确认此操作吗？");
 }
 MainWindow::~MainWindow() {
 

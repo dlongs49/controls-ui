@@ -19,13 +19,19 @@ class Dialog : public QFrame {
 Q_OBJECT
 public:
     explicit Dialog(QWidget *parent);
+
 public slots:
 
     void handleClose();
 
     void handleOn();
+
+    void show(QSize size, QString content);
+
 private:
     int w = 320;
+    int h = 180;
+    QString content;
     QGraphicsDropShadowEffect *shadow;
     QVBoxLayout *layout;
     QHBoxLayout *layout_top;

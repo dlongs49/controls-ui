@@ -29,7 +29,8 @@ public:
 public slots:
 
     int handleClick(int i);
-
+    void handleOn();
+    void handleDialogOk();
 private:
     QPushButton *btnList[5];
     QPushButton *dialog_btn;

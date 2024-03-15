@@ -1,9 +1,8 @@
 #include "dialog.h"
 
 Dialog::Dialog(QWidget *parent) : QFrame(parent) {
-    int h = 180;
     this->resize(w, h);
-    this->move(250, 200);
+    this->setVisible(false);
     this->setStyleSheet("QFrame{background:#f0f;background:#fff;border-radius:6px;}");
     shadow = new QGraphicsDropShadowEffect(this);
     shadow->setOffset(1, 0);
@@ -42,9 +41,7 @@ Dialog::Dialog(QWidget *parent) : QFrame(parent) {
     widget_text = new QWidget(this);
     widget_text->setFixedSize(w, h - 100);
     text = new QLabel;
-    text->setText("<p style='line-height:15px;'>"
-                  "蛾儿雪柳黄金缕，笑语盈盈暗香去，众里寻她千百度，漠然回首，那人却在灯火阑珊处"
-                  "</p>");
+    text->setText("<p style='line-height:15px;'></p>");
     font = new QFont("SimHei", 10);
     text->setFont(*font);
     text->setFixedSize(w - 24, h - 110);
@@ -97,6 +94,15 @@ void Dialog::handleClose() {
 
 void Dialog::handleOn() {
     emit emitOn();
+    this->setVisible(false);
+}
+
+void Dialog::show(QSize size, QString content) {
+    int left = (size.width() / 2) - (w / 2);
+    int top = (size.height() / 2) - (h / 2);
+    this->move(left, top);
+    this->setVisible(true);
+    text->setText("<p style='line-height:15px;'>" + content + "</p>");
 }
 
 bool Dialog::eventFilter(QObject *obj, QEvent *e) {
