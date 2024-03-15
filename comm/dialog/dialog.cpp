@@ -1,6 +1,8 @@
 #include "dialog.h"
 
-Dialog::Dialog(QWidget *parent) : QFrame(parent) {
+Dialog::Dialog() : QFrame() {
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+//    this->setAttribute(Qt::WA_TranslucentBackground, true);
     this->resize(w, h);
     this->setVisible(false);
     this->setStyleSheet("QFrame{background:#f0f;background:#fff;border-radius:6px;}");

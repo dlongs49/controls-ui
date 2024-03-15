@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     toast = new Toast(this);
-    dialog = new Dialog(this);
+    dialog = new Dialog();
     dialog->setWindowModality(Qt::ApplicationModal);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     connect(dialog, SIGNAL(emitOn()),this,SLOT(handleDialogOk()));

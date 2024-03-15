@@ -18,7 +18,7 @@
 class Dialog : public QFrame {
 Q_OBJECT
 public:
-    explicit Dialog(QWidget *parent);
+    explicit Dialog();
 
 public slots:
 
