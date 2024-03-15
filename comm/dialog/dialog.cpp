@@ -62,7 +62,7 @@ Dialog::Dialog(QWidget *parent) : QFrame(parent) {
     btn_cancel = new QPushButton;
     btn_cancel->setFixedSize(80,30);
     btn_cancel->setText("取消");
-    btn_cancel->setStyleSheet("QPushButton{border-radius:4px;background:#eee;color: #666;border:none;}QPushButton:hover{background:#f2f1f1;} QPushButton::pressed{background:#d0cece;}");
+    btn_cancel->setStyleSheet("QPushButton{border-radius:4px;background:#eee;color: #666;border:none;}QPushButton:hover{background:#f2f1f1;} QPushButton::pressed{background:#e8e7e7;}");
     btn_cancel->setCursor(Qt::PointingHandCursor);
     btn_ok = new QPushButton;
     btn_ok->setFixedSize(80,30);
