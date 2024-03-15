@@ -2,7 +2,7 @@
 
 Dialog::Dialog(QWidget *parent) : QFrame(parent) {
     int w = 320;
-    int h = 200;
+    int h = 180;
     this->resize(w, h);
     this->move(250,200);
     this->setStyleSheet("QFrame{background:#f0f;background:#fff;border-radius:6px;}");
