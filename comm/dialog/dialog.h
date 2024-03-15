@@ -1,6 +1,7 @@
 
 #ifndef CONTROLS_UI_DIALOG_H
 #define CONTROLS_UI_DIALOG_H
+
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -13,11 +14,18 @@
 #include <QFont>
 #include <QPoint>
 #include <QGraphicsDropShadowEffect>
-class Dialog : public QFrame{
+
+class Dialog : public QFrame {
+Q_OBJECT
 public:
-    explicit  Dialog(QWidget *parent);
-    bool eventFilter(QObject *obj, QEvent *event);
+    explicit Dialog(QWidget *parent);
 public slots:
+
+    void handleClose();
+
+    void handleOn();
+private:
+    int w = 320;
     QGraphicsDropShadowEffect *shadow;
     QVBoxLayout *layout;
     QHBoxLayout *layout_top;
@@ -33,15 +41,18 @@ public slots:
     QWidget *widget_btn;
     QPushButton *btn_cancel;
     QPushButton *btn_ok;
-
-
-
     QPoint start_point;
     QPoint init_point;
-private:
-    int w = 320;
 protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
     void mousePressEvent(QMouseEvent *event);
+
     void mouseMoveEvent(QMouseEvent *event);
+
+signals:
+
+    void emitOn();
 };
+
 #endif //CONTROLS_UI_DIALOG_H
