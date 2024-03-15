@@ -1,7 +1,6 @@
 #include "dialog.h"
 
 Dialog::Dialog(QWidget *parent) : QFrame(parent) {
-    int w = 320;
     int h = 180;
     this->resize(w, h);
     this->move(250,200);
@@ -84,4 +83,37 @@ Dialog::Dialog(QWidget *parent) : QFrame(parent) {
     layout->addWidget(widget_text);
     layout->addWidget(widget_btn);
     this->setLayout(layout);
+}
+
+bool Dialog::eventFilter(QObject *obj, QEvent *event) {
+//    QEvent::Type type = event->type();
+//    if (type == QEvent::Enter) {
+//        this->close_btn->setIcon(QIcon(":/resource/close_hover.png"));
+//        return true;
+//    }
+//    if (type == QEvent::Leave) {
+//        this->close_btn->setIcon(QIcon(":/resource/close.png"));
+//        return true;
+//    }
+    return QWidget::eventFilter(obj, event);
+}
+// 窗口拖拽移动 鼠标按下事件
+void Dialog::mousePressEvent(QMouseEvent *e) {
+    // 判断按下是鼠标左键
+    if (e->button() == Qt::LeftButton) {
+        // 相对 Dialog 坐标
+        start_point = e->globalPos();
+        // 起始坐标 相对屏幕
+        init_point = this->frameGeometry().topLeft();
+    }
+}
+
+// 窗口拖拽移动 鼠标移动事件
+void Dialog::mouseMoveEvent(QMouseEvent *e) {
+    int x = e->pos().x();
+    int y = e->pos().y();
+    if (e->buttons() == Qt::LeftButton && y < 40 && x < w) {
+        QPoint move_point = e->globalPos() - start_point;
+        this->move(init_point + move_point);
+    }
 }

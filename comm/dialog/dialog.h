@@ -8,12 +8,15 @@
 #include <QPushButton>
 #include <QDebug>
 #include <QPixmap>
+#include <QEvent>
+#include <QMouseEvent>
 #include <QFont>
+#include <QPoint>
 #include <QGraphicsDropShadowEffect>
 class Dialog : public QFrame{
 public:
     explicit  Dialog(QWidget *parent);
-
+    bool eventFilter(QObject *obj, QEvent *event);
 public slots:
     QGraphicsDropShadowEffect *shadow;
     QVBoxLayout *layout;
@@ -30,7 +33,15 @@ public slots:
     QWidget *widget_btn;
     QPushButton *btn_cancel;
     QPushButton *btn_ok;
-private:
 
+
+
+    QPoint start_point;
+    QPoint init_point;
+private:
+    int w = 320;
+protected:
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 };
 #endif //CONTROLS_UI_DIALOG_H
