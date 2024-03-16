@@ -6,6 +6,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QWidget>
+#include <QFrame>
 #include <QPushButton>
 #include <QDebug>
 #include <QPixmap>
@@ -15,10 +16,10 @@
 #include <QPoint>
 #include <QGraphicsDropShadowEffect>
 
-class Dialog : public QFrame {
+class Dialog : public QWidget {
 Q_OBJECT
 public:
-    explicit Dialog();
+    explicit Dialog(QWidget *parent = nullptr);
 
 public slots:
 
@@ -32,6 +33,7 @@ private:
     int w = 320;
     int h = 180;
     QString content;
+    QFrame *frame;
     QGraphicsDropShadowEffect *shadow;
     QVBoxLayout *layout;
     QHBoxLayout *layout_top;

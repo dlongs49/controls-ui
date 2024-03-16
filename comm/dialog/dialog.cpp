@@ -1,21 +1,27 @@
 #include "dialog.h"
 
-Dialog::Dialog() : QFrame() {
+Dialog::Dialog(QWidget *parent) : QWidget(parent) {
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
-//    this->setAttribute(Qt::WA_TranslucentBackground, true);
-    this->resize(w, h);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);
+    this->setStyleSheet("background:none;");
     this->setVisible(false);
-    this->setStyleSheet("QFrame{background:#f0f;background:#fff;border-radius:6px;}");
+    // QWidget透明 加宽高，方便 QFrame 有阴影存在
+    this->resize(w+18, h+18);
+    frame = new QFrame(this);
+    // 使其 frame 居中
+    frame->setGeometry(9,9,w, h);;
+    frame->setStyleSheet("QFrame{background:#f0f;background:#fff;border-radius:6px;}");
     shadow = new QGraphicsDropShadowEffect(this);
     shadow->setOffset(1, 0);
     shadow->setColor(QColor("#c0c0c0"));
     shadow->setBlurRadius(14);
-    this->setGraphicsEffect(shadow);
+    frame->setGraphicsEffect(shadow);
+
 
     layout_top = new QHBoxLayout;
     layout_top->setSpacing(0);
     layout_top->setMargin(0);
-    widget_top = new QWidget(this);
+    widget_top = new QWidget(frame);
     widget_top->setFixedSize(w, 45);
     widget_top->setStyleSheet("border-bottom:1px solid #eee;");
     font = new QFont("SimHei", 12);
@@ -40,7 +46,7 @@ Dialog::Dialog() : QFrame() {
     layout_text->setSpacing(0);
     layout_text->setMargin(0);
     layout_text->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-    widget_text = new QWidget(this);
+    widget_text = new QWidget(frame);
     widget_text->setFixedSize(w, h - 100);
     text = new QLabel;
     text->setText("<p style='line-height:15px;'></p>");
@@ -52,7 +58,7 @@ Dialog::Dialog() : QFrame() {
     widget_text->setLayout(layout_text);
 
 
-    widget_btn = new QWidget(this);
+    widget_btn = new QWidget(frame);
     widget_btn->setFixedSize(w, 45);
     layout_btn = new QHBoxLayout;
     layout_btn->setSpacing(0);
@@ -87,7 +93,7 @@ Dialog::Dialog() : QFrame() {
     layout->addSpacing(10);
     layout->addWidget(widget_text);
     layout->addWidget(widget_btn);
-    this->setLayout(layout);
+    frame->setLayout(layout);
 }
 
 void Dialog::handleClose() {
@@ -100,9 +106,9 @@ void Dialog::handleOn() {
 }
 
 void Dialog::show(QSize size, QString content) {
-    int left = (size.width() / 2) - (w / 2);
-    int top = (size.height() / 2) - (h / 2);
-    this->move(left, top);
+//    int left = (size.width() / 2) - (w / 2);
+//    int top = (size.height() / 2) - (h / 2);
+//    this->move(left, top);
     this->setVisible(true);
     text->setText("<p style='line-height:15px;'>" + content + "</p>");
 }
