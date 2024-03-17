@@ -2,7 +2,7 @@
 
 ### 效果
 
-![](https://img-blog.csdnimg.cn/direct/fc005823352c4ff88c90bf2b8b863767.gif#pic_center)
+![](https://img2.imgtp.com/2024/03/17/jldC2Z0J.gif)
 
 ### 使用
 
